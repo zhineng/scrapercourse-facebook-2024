@@ -3,8 +3,11 @@ sys.stdout.reconfigure(encoding='utf-8')
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+options = Options()
+options.add_argument("--disable-notifications")
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
 
 driver.get('https://www.facebook.com/')
 
